@@ -14,9 +14,9 @@ function isJS(path) {
 function filterArray(arr) {
 	return arr.filter(e => Number.isInteger(e))
 }
-// console.log(filterArray([1, 2, "a", "b"]))
-// console.log(filterArray([1, "a", "b", 0, 15]))
-// console.log(filterArray([1, 2, "aasf", "1", "123", 123]))
+console.log(filterArray([1, 2, "a", "b"]))
+console.log(filterArray([1, "a", "b", 0, 15]))
+console.log(filterArray([1, 2, "aasf", "1", "123", 123]))
 
 
 //SORTING NUMBER WITHOUT NULL
@@ -768,228 +768,16 @@ function largestSwap(num) {
 // console.log(largestSwap(55))
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Older Than Me
-class Person {
-	constructor(name, age) {
-		this.name = name;
-		this.age = age;
-	}
-
-	compareAge(other) {
-		if (this.age < other.age){
-			return `${other.name} is older than me.`
-		}else if (this.age > other.age){
-			return `${other.name} is younger than me.`
-		}else{
-			return `${other.name} is the same age as me.`
-		}
-	} 
+// Split a number into its digits
+function splitNumber(num) {
+	const convString = num.toString().split('')
+	return convString.map(e => parseInt(e))
 }
-p1 = new Person("Samuel", 24)
-p2 = new Person("Joel", 36)
-p3 = new Person("Lily", 24)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// PROTOTYPE examples - before ES6
-let PersonP = function(nm,id) {
-	this.name = nm;
-	this.id = id;
+function splitNumber(num) {
+	const string = num + '';
+  const strings = string.split('');
+  return strings.map(digit => Number(digit))
 }
-PersonP.prototype.getDetails = function() { // if dont have PROTO it would be error
-	return `${this.name} :: ${this.id}`
-}
-let milos = new PersonP('Milos', 231)
-// console.log(milos.getDetails())
-
-let employeeP = function (nm,id,salary) {
-	PersonP.call(this, nm, id);
-	this.salary = salary;
-}
-Object.setPrototypeOf(employeeP, PersonP.prototype); // extends
-employeeP.prototype.employeeInfo = function() {
-	return `${this.name} = ${this.id} = ${this.salary}`;
-}
-let stefana = new employeeP("stefana", 342, 40000)
-// console.log(stefana.employeeInfo())
-
-
-let a = 0;
-let b = false;
-// console.log(a == b)
-
-// BLOCK SCOPE - CONST LET
-{let x = 45;} // CANNOT
-{var y = 44;} // CAN
-for(var i = 0; i < 5;i++){
- // IT POSSIBLE
-}
-for(let b = 0; i < 5;i++){
-	// CAN NOT
-}
-// console.log(b)
-
-
-// Higher order function
-function higherOrder(fn) {
-  fn();
-}
-     
-higherOrder(function() {
- // console.log("Hello world") 
-}); 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// PATTERN
-
-// // Singleton pattern
-const Singleton = (function() {
-	let pManager
-
-	function ProcessManager() {
-		this.numProcess = 0
-	}
-	
-	function createProcessManager() {
-		pManager = new ProcessManager
-		return pManager
-	}
-
-	return {
-		getProcessManager:() => {
-			if(!pManager) 
-				pManager = createProcessManager()
-			return pManager;
-		}
-	}
-})()
-
-const processManager = Singleton.getProcessManager();
-const processManager2 = Singleton.getProcessManager();
-
-// console.log(processManager === processManager2)
-
-
-// FACTORY pattern
-function Developer(name) {
-	this.name = name
-	this.type = "Developer"
-}
-
-function Tester(name) {
-	this.name = name;
-	this.type = "Tester";
-}
-
-function EmployeeFactory() {
-	this.create = (name, type) => {
-		switch(type) {
-			case 1:
-				return new Developer(name)
-				break;
-			case 2:
-				return new Tester(name)
-				break;
-		}
-	}
-}
-
-function say() {
-	// console.log(`Hi my name ${this.name} and i am ${this.type}`)
-}
-
-const employeeFactory = new EmployeeFactory()
-const employees = []
-
-employees.push(employeeFactory.create("Patrick", 1))
-employees.push(employeeFactory.create("Milos",2))
-
-employees.forEach(e => {
-	say.call(e)
-})
+// console.log(splitNumber(10))
+// console.log(splitNumber(931))
+// console.log(splitNumber(123425235))
