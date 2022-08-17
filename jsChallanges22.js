@@ -203,6 +203,7 @@ function descArr(arr) {
 // console.log(descArr([3,2,4,5,6,7,1]))
 
 
+// 08.2022
 // Tuck in Array
 // Create a function that takes two arrays and insert the 
 // second array in the middle of the first array.
@@ -214,10 +215,73 @@ function tuckIn(arr1, arr2) {
    arr2.push(arr1[1])
 return arr2
 }
-console.log(tuckIn([1, 10], [2, 3, 4, 5, 6, 7, 8, 9])) // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-console.log(tuckIn([15, 150], [45, 75, 35])) // [15, 45, 75, 35, 150]
-console.log(tuckIn(["bottom", "topping"], ["tomatosauce", "vegetables", "cheese"]))
-// ["bottom", "tomatosauce", "vegetables", "cheese", "topping"]
-console.log(tuckIn([true, false], [false, true, null, undefined]))
-// [true, false, true, null, undefined, false]
-console.log(tuckIn([[1, 2], [5, 6]], [[3, 4]])) // [[1, 2], [3, 4], [5, 6]]
+// console.log(tuckIn([1, 10], [2, 3, 4, 5, 6, 7, 8, 9])) // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+// console.log(tuckIn([15, 150], [45, 75, 35])) // [15, 45, 75, 35, 150]
+// console.log(tuckIn(["bottom", "topping"], ["tomatosauce", "vegetables", "cheese"]))
+// // ["bottom", "tomatosauce", "vegetables", "cheese", "topping"]
+// console.log(tuckIn([true, false], [false, true, null, undefined]))
+// // [true, false, true, null, undefined, false]
+// console.log(tuckIn([[1, 2], [5, 6]], [[3, 4]])) // [[1, 2], [3, 4], [5, 6]]
+
+function getDecimalPlaces(num) {
+  let arr = num.split('.')
+  return typeof arr[1] === 'undefined' ? 0 : arr[1].length
+}
+// console.log(getDecimalPlaces("43.20"))
+// console.log(getDecimalPlaces("400"))
+// console.log(getDecimalPlaces("3.1"))
+// console.log(getDecimalPlaces("3.143534"))
+
+// Largest Swap
+function largestSwap(num) {
+  let revNum = num.toString().split('').reverse().join("")
+  return revNum > num ? false : true
+}
+// console.log(largestSwap(27))
+// console.log(largestSwap(43))
+// console.log(largestSwap(14))
+// console.log(largestSwap(53))
+// console.log(largestSwap(99))
+
+
+// Tuck in Array
+// Create a function that takes two arrays and insert the second array in the middle of the first array.
+function tuckIn(arr1, arr2) {
+  return arr1.slice(0,1).concat(arr2).concat(arr1[1])
+}
+// console.log(tuckIn([1,10], [2,3,4,5,6,7,8,9]))
+// console.log(tuckIn([15,150], [45, 75, 35]))
+// console.log(tuckIn([[1,2],[5,6]], [[3,4]]))
+// console.log(tuckIn(["bottom", "topping"], ["tomatosauce", "vegetables", "cheese"]))
+
+
+function highestDigit(number) {
+  return Math.max(...number.toString().split("").map(e => parseInt(e)))
+}
+// console.log(highestDigit(51))
+// console.log(highestDigit(0))
+// console.log(highestDigit(7495037))
+// console.log(highestDigit(222222))
+
+function whichIsLarger(f, g) {
+  if(f() > g()) {
+    return 'f'
+  }  else if (f() < g()) {
+    return'g'
+  } else {
+    return 'neither'
+  }
+}
+// console.log(whichIsLarger(()=>5, ()=>10))
+// console.log(whichIsLarger(()=>10, ()=>5))
+// console.log(whichIsLarger(()=>25, ()=>25))
+// console.log(whichIsLarger(()=>-100, ()=>-100))
+
+// Given an array of numbers, return an array which contains all the even numbers in the original array, which also have even indices.
+function getOnlyEvens(nums) {
+  let even = nums.filter(e => e % 2 === 0)
+  return even.filter(e => nums.indexOf(e) % 2 === 0)
+}
+// console.log(getOnlyEvens([1, 3, 2, 6, 4, 8]))
+// console.log(getOnlyEvens([0, 1, 2, 3, 4]))
+// console.log(getOnlyEvens([1, 2, 3, 4, 5]))

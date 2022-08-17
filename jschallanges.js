@@ -14,9 +14,9 @@ function isJS(path) {
 function filterArray(arr) {
 	return arr.filter(e => Number.isInteger(e))
 }
-console.log(filterArray([1, 2, "a", "b"]))
-console.log(filterArray([1, "a", "b", 0, 15]))
-console.log(filterArray([1, 2, "aasf", "1", "123", 123]))
+// console.log(filterArray([1, 2, "a", "b"]))
+// console.log(filterArray([1, "a", "b", 0, 15]))
+// console.log(filterArray([1, 2, "aasf", "1", "123", 123]))
 
 
 //SORTING NUMBER WITHOUT NULL

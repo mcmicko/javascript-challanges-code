@@ -5,6 +5,7 @@ const inputText = document.getElementById("inputText")
 const funLowerCase = (inputText) => {
 	console.log(textName.innerHTML.toLowerCase())
 	// return textName.innerHTML = inputText
+	return textName.innerHTML = inputText.getAttribute("")
 	// return textName.innerHTML = textName.innerHTML.toLowerCase()
 }
 
